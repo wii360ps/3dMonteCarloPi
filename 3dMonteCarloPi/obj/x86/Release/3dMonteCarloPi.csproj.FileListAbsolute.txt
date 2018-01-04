@@ -46,7 +46,6 @@ D:\Gits\3dMonteCarloPi\3dMonteCarloPi\bin\Windows\x86\Release\SharpDX.Direct3D11
 D:\Gits\3dMonteCarloPi\3dMonteCarloPi\bin\Windows\x86\Release\SharpDX.Direct2D1.xml
 D:\Gits\3dMonteCarloPi\3dMonteCarloPi\bin\Windows\x86\Release\SharpDX.XInput.xml
 D:\Gits\3dMonteCarloPi\3dMonteCarloPi\bin\Windows\x86\Release\SharpDX.Direct3D9.xml
-D:\Gits\3dMonteCarloPi\3dMonteCarloPi\obj\x86\Release\3dMonteCarloPi.csprojResolveAssemblyReference.cache
 D:\Gits\3dMonteCarloPi\3dMonteCarloPi\obj\x86\Release\3dMonteCarloPi.csproj.CoreCompileInputs.cache
 D:\Gits\3dMonteCarloPi\3dMonteCarloPi\obj\x86\Release\3dMonteCarloPi.exe
 D:\Gits\3dMonteCarloPi\3dMonteCarloPi\obj\x86\Release\3dMonteCarloPi.pdb

@@ -10,8 +10,8 @@ namespace _3dMonteCarloPi
         // 6 * hits / trials
         private static Mutex counterLock = new Mutex();
         private Random rand;
-        private static int hits = 0;
-        private static int trials = 0;
+        private static long hits = 0;
+        private static long trials = 0;
         private static bool keepGoing = true;
         private CubeManager manager;
 
@@ -43,7 +43,7 @@ namespace _3dMonteCarloPi
             int x;
             int y;
             int z;
-            int trialNum;
+            long trialNum;
             int radius = ProjectConstants.radius;
             int diameter = radius * 2;
             int rSquared = radius * radius;
