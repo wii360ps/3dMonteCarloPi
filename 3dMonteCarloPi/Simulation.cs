@@ -71,6 +71,7 @@ namespace _3dMonteCarloPi
                         ++hits;
                     }
                 }
+
                 if(trialNum %100 == 0)
                 {
                     manager.makeCube(x, y, z, hit);

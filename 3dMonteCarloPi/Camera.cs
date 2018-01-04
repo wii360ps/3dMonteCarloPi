@@ -13,6 +13,7 @@ namespace _3dMonteCarloPi
         private Matrix projection;
         private Matrix view;
         private bool orbit;
+        private bool spaceUpSinceLastPress = true;
         
         public static Camera getCamera(GraphicsDevice device, Game game)
         {
@@ -25,9 +26,14 @@ namespace _3dMonteCarloPi
 
         public override void Update(GameTime gameTime)
         {
-            if (Keyboard.GetState().IsKeyDown(Keys.Space))
+            if (Keyboard.GetState().IsKeyDown(Keys.Space) && spaceUpSinceLastPress)
             {
                 orbit = !orbit;
+                spaceUpSinceLastPress = false;
+            }
+            else if (Keyboard.GetState().IsKeyUp(Keys.Space))
+            {
+                spaceUpSinceLastPress = true;
             }
 
             if (orbit)
@@ -53,9 +59,9 @@ namespace _3dMonteCarloPi
 
         private Camera(GraphicsDevice device, Game game) : base(game)
         {
-            position = new Vector3(0, 0, 550);
+            position = new Vector3(0, 0, 700);
             target = new Vector3(0, 0, 0);
-            projection = Matrix.CreatePerspectiveFieldOfView(MathHelper.ToRadians(100f), device.DisplayMode.AspectRatio, 1.0f, 1000.0f);
+            projection = Matrix.CreatePerspectiveFieldOfView(MathHelper.ToRadians(70.0f), device.DisplayMode.AspectRatio, 1.0f, 1000.0f);
             view = Matrix.CreateLookAt(position, target, Vector3.Up);
         }  
     }
