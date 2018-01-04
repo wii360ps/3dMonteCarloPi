@@ -28,6 +28,7 @@ namespace _3dMonteCarloPi
         public void updateCube(float x, float y, float z, Model model)
         {
             myModel = model;
+            world = Matrix.CreateTranslation(x, y, z);
         }
 
         public override void Draw(GameTime gameTime)

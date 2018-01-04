@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
+using System.Threading;
 
 namespace _3dMonteCarloPi
 {
@@ -12,7 +13,7 @@ namespace _3dMonteCarloPi
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        
+        Camera camera;
         //Camera
         //Vector3 target;
         //Vector3 position;
@@ -41,7 +42,14 @@ namespace _3dMonteCarloPi
             // TODO: Add your initialization logic here
 
             base.Initialize();
-            
+            Random rand = new Random();
+            Simulation sim;
+            for (int i = 0; i < ProjectConstants.threadCount; ++i)
+            {
+                sim = new Simulation(this, rand.Next());
+                new Thread(new ThreadStart(sim.simulate)).Start();
+            }
+            camera = Camera.getCamera(GraphicsDevice, this);
             //setup camera
             //target = new Vector3(0.0f, 0.0f, 0.0f);
             //position = new Vector3(0.0f, 15f, -100.0f);
@@ -72,6 +80,7 @@ namespace _3dMonteCarloPi
         protected override void UnloadContent()
         {
             // TODO: Unload any non ContentManager content here
+            
         }
 
         /// <summary>
@@ -82,10 +91,13 @@ namespace _3dMonteCarloPi
         protected override void Update(GameTime gameTime)
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+            {
+                Simulation.Stop();
                 Exit();
+            }
 
             
-            Camera.getCamera(GraphicsDevice, this).Update(gameTime);
+            camera.Update(gameTime);
             // TODO: Add your update logic here
 
             //if (orbit)
@@ -108,7 +120,7 @@ namespace _3dMonteCarloPi
             
 
             GraphicsDevice.Clear(Color.TransparentBlack);
-            
+
             //foreach (ModelMesh mesh in blueCube.Meshes)
             //{
             //    foreach(BasicEffect effect in mesh.Effects)
@@ -117,17 +129,16 @@ namespace _3dMonteCarloPi
             //        effect.View = viewMatrix;
             //        effect.World = worldMatrix;
             //        effect.Projection = projectionMatrix;
-                    
+
             //    }
             //    mesh.Draw();
             //}
 
             // TODO: Add your drawing code here
 
-            foreach(Cube c in cubes)
-            {
-                c.Draw(gameTime);
-            }
+            CubeManager.getCubeManager(this).Draw(gameTime);
+
+            this.Window.Title = $"Pi Approximation: {Simulation.Pi}";
 
             base.Draw(gameTime);
         }

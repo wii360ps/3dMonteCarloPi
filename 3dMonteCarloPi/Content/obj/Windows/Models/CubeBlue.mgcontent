@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/aidan/source/repos/3dMonteCarloPi/3dMonteCarloPi/Content/Models/CubeBlue.fbx</SourceFile>
-  <SourceTime>2018-01-03T20:31:30.3550017-05:00</SourceTime>
-  <DestFile>C:/Users/aidan/source/repos/3dMonteCarloPi/3dMonteCarloPi/Content/bin/Windows/Models/CubeBlue.xnb</DestFile>
-  <DestTime>2018-01-03T20:45:17.7917846-05:00</DestTime>
+  <SourceFile>D:/Gits/3dMonteCarloPi/3dMonteCarloPi/Content/Models/CubeBlue.fbx</SourceFile>
+  <SourceTime>2018-01-04T08:04:58.7195191-05:00</SourceTime>
+  <DestFile>D:/Gits/3dMonteCarloPi/3dMonteCarloPi/Content/bin/Windows/Models/CubeBlue.xnb</DestFile>
+  <DestTime>2018-01-04T08:33:21.3201827-05:00</DestTime>
   <Importer>FbxImporter</Importer>
   <ImporterTime>2017-03-01T10:05:36-05:00</ImporterTime>
   <Processor>ModelProcessor</Processor>

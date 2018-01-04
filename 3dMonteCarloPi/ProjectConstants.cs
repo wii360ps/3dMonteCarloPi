@@ -10,5 +10,6 @@ namespace _3dMonteCarloPi
     {
         public const int cubeCount = 5000;
         public const int radius = 300;
+        public const int threadCount = 4;
     }
 }

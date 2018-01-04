@@ -10,12 +10,12 @@ namespace _3dMonteCarloPi
         private Mutex cubeLock = new Mutex();
         private int count = ProjectConstants.cubeCount;
         private Cube[] cubes;
-        private CubeManager singleton;
+        private static CubeManager singleton = null;
         private int currentIndex;
         private static Model redModel;
         private static Model blueModel;
 
-        public CubeManager getCubeManager(Game game)
+        public static CubeManager getCubeManager(Game game)
         {
             if(singleton == null)
             {
